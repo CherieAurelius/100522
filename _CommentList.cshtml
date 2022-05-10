@@ -1,0 +1,31 @@
+@using ContentModels = Umbraco.Web.PublishingModels;
+@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+  
+    var id = Model.Id;
+    var rootNode =  Model.Root();
+    var CurrentNode = Umbraco.Content(id); 
+
+    if (CurrentNode.Children().Count() > 0)
+    {
+        <div class="comment-content-panel">
+            <div class="col-sx-12 col-sm-12 col-md-12">
+                @{
+                    foreach  (IPublishedContent child in CurrentNode.Children().Where( x => x.ContentType.Alias.ToLower() == "comment"))
+                    {
+                        if(child.GetProperty("published") != null && !String.IsNullOrEmpty(child.GetProperty("published").GetValue().ToString()))
+                        {
+                            <div class="comment-content-item">
+                                <div class="posted-name">Bye:<span>@child.GetProperty("creator").GetValue()</span></div>
+                                <div class="posted-date">@child.CreateDate.ToString("MMM dd,  yyyy")</div>
+                                <div class="posted-subject">@child.GetProperty("title").GetValue()</div>
+                                <div class="posted-content">@Html.Raw(child.GetProperty("comments").GetValue())</div>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+        </div>
+    }
+}
