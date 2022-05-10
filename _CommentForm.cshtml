@@ -14,10 +14,10 @@ using Umbraco.Web;
                         @Html.TextBoxFor( x => x.Name, new {placeholder="Name", @class="margin-bottom-10"})
                         @Html.TextBoxFor( x => x.Email, new {placeholder="Email", @class="margin-bottom-10"})
                         @Html.TextBoxFor( x => x.Title, new {placeholder="Title", @class="margin-bottom-10"})
-                        @Html.TextBoxFor( x => x.Comments, new {placeholder="Comments", @class="margin-bottom-10"})
+                        @Html.TextArea( x => x.Comments, new {placeholder="Comments", @class="margin-bottom-10"})
                         
                         @Html.ValidationSummary()
-                        <button name="comment" type ="submit"></button>
+                        <button name="comment" type ="submit">Verzend</button>
                     }
                 }
             </div>

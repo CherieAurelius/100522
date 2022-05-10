@@ -6,11 +6,18 @@ using System.Web.Mvc;
 
 namespace Connected.Controllers
 {
-    public class CommentsController  :  Controller 
+    public class CommentsController  :  SurfaceController
     {
-        public ActionResult  Index()
+        public ActionResult  CommentForm()
         {
-            return View ();
+            return PartialView("CommentForm", new CommentModel());
+        }
+
+        [HttpPost]
+        public ActionResult SubmitComment(CommentModel model)
+        {
+            
+
         }
     }
 }
