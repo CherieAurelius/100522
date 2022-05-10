@@ -1,4 +1,26 @@
 using Umbraco.Web;
 @inherits Umbraco.Web.Mvc.UmbracoViewPage<Connected.Models.CommentModel>
 
-<div class = commen
+<div class = "comment-panel">
+    <a  data-toggle= "collapse"  href="#CommentID" class="collapsed" aria-expanded="false"><span><i class ="fa fa-comments-o"></i>&nbsp;</span>Add comment</a>
+    <div id ="CommentID" class="panel-collapse collapse">
+        <div class =" form-container padding-bottom-50">
+            <div class="form-content login-form">
+                @{
+                    using(Html.BeginUmbracoForm("SubmitComment", "Comments", System.Web.Mvc.FormMethod.Post, new {id ="comment"}))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.TextBoxFor( x => x.Name, new {placeholder="Name", @class="margin-bottom-10"})
+                        @Html.TextBoxFor( x => x.Email, new {placeholder="Email", @class="margin-bottom-10"})
+                        @Html.TextBoxFor( x => x.Title, new {placeholder="Title", @class="margin-bottom-10"})
+                        @Html.TextBoxFor( x => x.Comments, new {placeholder="Comments", @class="margin-bottom-10"})
+                        
+                        @Html.ValidationSummary()
+                        <button name="comment" type ="submit"></button>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
