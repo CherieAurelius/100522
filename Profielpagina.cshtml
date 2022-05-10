@@ -1,0 +1,26 @@
+@using ContentModels = Umbraco.Web.PublishingModels;
+@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+    ViewBag.Title = Model.Name;
+    //layout - .cshtml
+    //ViewBag.CrumbItem = "Home";
+    //ViewBag.IsHome=false;
+
+    var id = Model.Id;
+    var rootNode =  Model.Root();
+    var CurrentNode = Umbraco.Content(id); 
+}
+
+@section Featured
+{}
+
+@section Body
+{
+    
+    @Html.Partial ("Bodytext")
+    @{Html.RenderAction("CommentForm","Comments");} 
+    @Html.Partial("/Widgets/CommentList.cshtml")
+
+}
+
