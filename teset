@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Umbraco.Core.Services;
+using Umbraco.Core.Composing;
+using Umbraco.Web.Mvc;
+using www.Models;
+
+namespace www.Controllers
+{
+    /* public class CommentsController : SurfaceController
+     {
+
+         public ActionResult CommentForm()
+         {
+
+             return View("CommentForm", new CommentModel());
+         }
+
+         [HttpPost]
+         public ActionResult SubmitComment (CommentModel model)
+
+         {
+             if (!ModelState.IsValid)
+             {
+                 return CurrentUmbracoPage();
+             }
+             else
+             {
+                 int userId = 0;
+                 var content = Current.Services.ContentService.Create(model.Name, CurrentPage.Id, "comment", userId);
+                 content.SetValue("comments", model.Comment);
+
+                 var memberService = Services.MemberService;
+                 var member = memberService.GetById(userId);
+                 var savePublishComment = Current.Services.ContentService.SaveAndPublish(content);
+                 memberService.Save(memmodel.Comment);*/
+
+
+
+    /*                Umbraco.Core.Services.OperationResult saveResult = Current.Services.ContentService.Save(content);
+                    Umbraco.Core.Services.OperationsResult publish = Current.Services.ContentService.SaveAndPublish(*/
+
+    /*
+                    if (content.Result == 0)
+                        return RedirectToCurrentUmbracoPage();*/
+}
